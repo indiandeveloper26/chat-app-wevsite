@@ -1,32 +1,9 @@
-/** @type {import('next').NextConfig} */
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
-
-  images: {
-    unoptimized: true,
-  },
-
+  output: 'export',
+  trailingSlash: true // 👉 static export में recommended है
 };
 
-export default nextConfig;
-
-
-
-
-
-
-
-
-
-
-
-// /**
-// // next.config.js
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   output: 'export',
-//   // trailingSlash: true,
-//   // skipTrailingSlashRedirect: true,
-//   // distDir: 'dist',
-// }
-
-// module.exports = nextConfig
+module.exports = nextConfig;
