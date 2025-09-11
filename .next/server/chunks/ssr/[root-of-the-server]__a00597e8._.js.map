@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///D:/live-app/socail-app/socail-forntend/socail-appwith-web/socail-web-app/app/log/page.jsx"],"sourcesContent":["import React from 'react'\r\n\r\nexport default function page() {\r\n    return (\r\n\r\n        <div>\r\n\r\n            <h1>\r\n                th is is is login pahe now\r\n            </h1>\r\n        </div>\r\n    )\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;;;AAEe,SAAS;IACpB,qBAEI,8OAAC;kBAEG,cAAA,8OAAC;sBAAG;;;;;;;;;;;AAKhB","debugId":null}}]
+}

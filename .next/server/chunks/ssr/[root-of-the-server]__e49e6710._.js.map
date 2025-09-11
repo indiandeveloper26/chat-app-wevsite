@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///D:/live-app/socail-app/socail-forntend/socail-appwith-web/socail-web-app/app/postshow/%5Buserid%5D/page.jsx"],"sourcesContent":["import React from 'react'\r\n\r\nexport default async function page({ params }) {\r\n\r\n\r\n    let { userid } = await params\r\n\r\n    console.log(userid)\r\n    return (\r\n        <div>page</div>\r\n    )\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;;;AAEe,eAAe,KAAK,EAAE,MAAM,EAAE;IAGzC,IAAI,EAAE,MAAM,EAAE,GAAG,MAAM;IAEvB,QAAQ,GAAG,CAAC;IACZ,qBACI,8OAAC;kBAAI;;;;;;AAEb","debugId":null}}]
+}
