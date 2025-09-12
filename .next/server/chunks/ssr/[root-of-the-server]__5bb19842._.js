@@ -107,8 +107,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 // ✅ Axios instance banao
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].create({
-    // baseURL: 'http://10.17.254.92:5000', // yahan apna base URL daal
-    baseURL: 'https://socail-app-bakcend-v-2-2.onrender.com/',
+    baseURL: 'http://10.17.254.92:5000',
+    // baseURL: 'https://socail-app-bakcend-v-2-2.onrender.com/', // yahan apna base URL daal
     // baseURL: 'https://firebase-chat-app-v-8-3.onrender.com', // yahan apna base URL daal
     timeout: 5000
 });
