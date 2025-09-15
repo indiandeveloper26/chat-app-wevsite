@@ -5,6 +5,252 @@
 
 var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
+// // "use client";
+// // import { useEffect, useState } from "react";
+// // import api from "../apicall.js";
+// // export default function CreatePostPage() {
+// //     const [content, setContent] = useState("");
+// //     const [image, setImage] = useState(null);
+// //     const [loading, setLoading] = useState(false);
+// //     // 📌 Image select
+// //     const handleImageChange = (e) => {
+// //         if (e.target.files && e.target.files[0]) {
+// //             setImage(e.target.files[0]);
+// //         }
+// //     };
+// //     useEffect(() => {
+// //         let apicall = async () => {
+// //             try {
+// //                 let data = (await api.get('api')).data
+// //                 console.log(data)
+// //             } catch (error) {
+// //                 console.log('error',)
+// //             }
+// //         }
+// //         apicall()
+// //     }, [])
+// //     // 📌 Submit Post
+// //     const handlePost = async (e) => {
+// //         e.preventDefault();
+// //         if (!content.trim() && !image) {
+// //             alert("⚠️ Write something or select an image");
+// //             return;
+// //         }
+// //         setLoading(true);
+// //         try {
+// //             const user = JSON.parse(localStorage.getItem("user") || "{}");
+// //             const formData = new FormData();
+// //             formData.append("id", user._id); // must match backend 'id'
+// //             formData.append("content", content);
+// //             if (image) {
+// //                 formData.append("image", image); // must match multer field name
+// //             }
+// //             // ✅ Do NOT manually set Content-Type
+// //             const res = await api.get("post", formData);
+// //             console.log("✅ Upload Success:", res.data);
+// //             alert("✅ Post created successfully!");
+// //             setContent("");
+// //             setImage(null);
+// //         } catch (error) {
+// //             console.error(
+// //                 "❌ Upload Error:",
+// //                 error.response?.data || error.message || "Unknown Error"
+// //             );
+// //             alert("❌ Could not create post");
+// //         } finally {
+// //             setLoading(false);
+// //         }
+// //     };
+// //     return (
+// //         <div className="min-h-screen bg-gray-50 flex justify-center items-center p-6">
+// //             <div className="bg-white w-full max-w-lg p-6 rounded-2xl shadow-lg">
+// //                 <h1 className="text-2xl font-bold text-center mb-4 text-gray-800">
+// //                     Create Post
+// //                 </h1>
+// //                 <form onSubmit={handlePost}>
+// //                     {/* Content */}
+// //                     <textarea
+// //                         placeholder="What's on your mind?"
+// //                         className="w-full border border-gray-300 rounded-lg p-3 min-h-[100px] mb-4 focus:ring-2 focus:ring-blue-500 outline-none"
+// //                         value={content}
+// //                         onChange={(e) => setContent(e.target.value)}
+// //                     />
+// //                     {/* Image Upload */}
+// //                     <div className="mb-4">
+// //                         <input
+// //                             type="file"
+// //                             accept="image/*"
+// //                             onChange={handleImageChange}
+// //                             className="block w-full text-sm text-gray-600 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+// //                         />
+// //                         {image && (
+// //                             <img
+// //                                 src={URL.createObjectURL(image)}
+// //                                 alt="Preview"
+// //                                 className="mt-3 w-full h-60 object-cover rounded-lg"
+// //                             />
+// //                         )}
+// //                     </div>
+// //                     {/* Post Button */}
+// //                     <button
+// //                         type="submit"
+// //                         disabled={loading}
+// //                         className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-60"
+// //                     >
+// //                         {loading ? "Posting..." : "Post"}
+// //                     </button>
+// //                 </form>
+// //             </div>
+// //         </div>
+// //     );
+// // }
+// "use client";
+// import { useState } from "react";
+// import api from "../apicall.js";
+// export default function CreatePostPage() {
+//     const [content, setContent] = useState("");
+//     const [image, setImage] = useState(null);
+//     const [loading, setLoading] = useState(false);
+//     // 📌 Image select
+//     const handleImageChange = (e) => {
+//         if (e.target.files && e.target.files[0]) {
+//             setImage(e.target.files[0]);
+//         }
+//     };
+//     // 📌 Submit Post
+//     return (
+//         <div className="min-h-screen bg-gray-50 flex justify-center items-center p-6">
+//             <div className="bg-white w-full max-w-lg p-6 rounded-2xl shadow-lg">
+//                 <h1 className="text-2xl font-bold text-center mb-4 text-gray-800">
+//                     Create Post
+//                 </h1>
+//                 <form onSubmit={handlePost}>
+//                     {/* Content */}
+//                     <textarea
+//                         placeholder="What's on your mind?"
+//                         className="w-full border border-gray-300 rounded-lg p-3 min-h-[100px] mb-4 focus:ring-2 focus:ring-blue-500 outline-none"
+//                         value={content}
+//                         onChange={(e) => setContent(e.target.value)}
+//                     />
+//                     {/* Image Upload */}
+//                     <div className="mb-4">
+//                         <input
+//                             type="file"
+//                             accept="image/*"
+//                             onChange={handleImageChange}
+//                             className="block w-full text-sm text-gray-600 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+//                         />
+//                         {image && (
+//                             <img
+//                                 src={URL.createObjectURL(image)}
+//                                 alt="Preview"
+//                                 className="mt-3 w-full h-60 object-cover rounded-lg"
+//                             />
+//                         )}
+//                     </div>
+//                     {/* Post Button */}
+//                     <button
+//                         type="submit"
+//                         disabled={loading}
+//                         className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-60"
+//                     >
+//                         {loading ? "Posting..." : "Post"}
+//                     </button>
+//                 </form>
+//             </div>
+//         </div>
+//     );
+// }
+// "use client";
+// import { useEffect, useState } from "react";
+// import api from "../apicall.js";
+// export default function CreatePostPage() {
+//     const [content, setContent] = useState("");
+//     const [image, setImage] = useState(null);
+//     const [loading, setLoading] = useState(false);
+//     const handleImageChange = (e) => {
+//         if (e.target.files && e.target.files[0]) {
+//             setImage(e.target.files[0]);
+//         }
+//     };
+//     useEffect(() => {
+//         let username = localStorage.getItem('user')
+//         console.log('usernmae', username)
+//     }, [])
+//     const handlePost = async (e) => {
+//         e.preventDefault();
+//         if (!content.trim() && !image) {
+//             alert("⚠️ Write something or select an image");
+//             return;
+//         }
+//         setLoading(true);
+//         let username = localStorage.getItem('user')
+//         try {
+//             // const user = localStorage.getItem('user')
+//             const id = localStorage.getItem('id')
+//             console.log('useid ', JSON.stringify(id))
+//             const formData = new FormData();
+//             formData.append("id", id);
+//             formData.append("username", username);
+//             formData.append("content", content);
+//             if (image) formData.append("image", image);
+//             // ✅ Yaha POST request hai, GET nahi
+//             const res = await api.post("post", formData);
+//             console.log("✅ Upload Success:", res.data);
+//             // alert("✅ Post created successfully!");
+//             setContent("");
+//             setImage(null);
+//         } catch (error) {
+//             console.error(
+//                 "❌ Upload Error:",
+//                 // error.response?.data || error.message || "Unknown Error"
+//                 error.message
+//             );
+//             alert("❌ Could not create post");
+//         } finally {
+//             setLoading(false);
+//         }
+//     };
+//     return (
+//         <div className="min-h-screen bg-gray-50 flex justify-center items-center p-6">
+//             <div className="bg-white w-full max-w-lg p-6 rounded-2xl shadow-lg">
+//                 <h1 className="text-2xl font-bold text-center mb-4 text-gray-800">
+//                     Create Post
+//                 </h1>
+//                 <form onSubmit={handlePost}>
+//                     <textarea
+//                         placeholder="What's on your mind?"
+//                         className="w-full border border-gray-300 rounded-lg p-3 min-h-[100px] mb-4 focus:ring-2 focus:ring-blue-500 outline-none"
+//                         value={content}
+//                         onChange={(e) => setContent(e.target.value)}
+//                     />
+//                     <div className="mb-4">
+//                         <input
+//                             type="file"
+//                             accept="image/*"
+//                             onChange={handleImageChange}
+//                             className="block w-full text-sm text-gray-600 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+//                         />
+//                         {image && (
+//                             <img
+//                                 src={URL.createObjectURL(image)}
+//                                 alt="Preview"
+//                                 className="mt-3 w-full h-60 object-cover rounded-lg"
+//                             />
+//                         )}
+//                     </div>
+//                     <button
+//                         type="submit"
+//                         disabled={loading}
+//                         className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-60"
+//                     >
+//                         {loading ? "Posting..." : "Post"}
+//                     </button>
+//                 </form>
+//             </div>
+//         </div>
+//     );
+// }
 __turbopack_context__.s({
     "default": ()=>CreatePostPage
 });
@@ -21,40 +267,37 @@ function CreatePostPage() {
     const [content, setContent] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [image, setImage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    // 📌 Image select
     const handleImageChange = (e)=>{
         if (e.target.files && e.target.files[0]) {
             setImage(e.target.files[0]);
         }
     };
-    // 📌 Submit Post
-    const handlePost = async ()=>{
+    const handlePost = async (e)=>{
+        e.preventDefault();
         if (!content.trim() && !image) {
-            alert("⚠️ Write something or select an image");
+            alert("Write something or select an image");
             return;
         }
         setLoading(true);
+        const id = localStorage.getItem("id");
+        const username = localStorage.getItem("user");
         try {
-            const user = JSON.parse(localStorage.getItem("user") || "{}");
             const formData = new FormData();
-            formData.append("id", user._id);
+            formData.append("id", id);
+            formData.append("username", username);
             formData.append("content", content);
-            if (image) {
-                formData.append("image", image);
-            }
-            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post("/api/post", formData, {
+            if (image) formData.append("image", image);
+            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post("http://localhost:5000/post", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
             });
-            console.log("✅ Upload Success:", res.data);
-            alert("✅ Post created successfully!");
+            console.log("Upload Success:", res.data);
             setContent("");
             setImage(null);
-        } catch (error) {
-            var _error_response;
-            console.error("❌ Upload Error:", ((_error_response = error.response) === null || _error_response === void 0 ? void 0 : _error_response.data) || error.message);
-            alert("❌ Could not create post");
+        } catch (err) {
+            console.error("Upload Error:", err);
+            alert("Could not create post");
         } finally{
             setLoading(false);
         }
@@ -65,70 +308,70 @@ function CreatePostPage() {
             className: "bg-white w-full max-w-lg p-6 rounded-2xl shadow-lg",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                    className: "text-2xl font-bold text-center mb-4 text-gray-800",
+                    className: "text-2xl font-bold text-center mb-4",
                     children: "Create Post"
                 }, void 0, false, {
                     fileName: "[project]/app/post/page.jsx",
-                    lineNumber: 56,
+                    lineNumber: 380,
                     columnNumber: 17
                 }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
-                    placeholder: "What's on your mind?",
-                    className: "w-full border border-gray-300 rounded-lg p-3 min-h-[100px] mb-4 focus:ring-2 focus:ring-blue-500 outline-none",
-                    value: content,
-                    onChange: (e)=>setContent(e.target.value)
-                }, void 0, false, {
-                    fileName: "[project]/app/post/page.jsx",
-                    lineNumber: 61,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mb-4",
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                    onSubmit: handlePost,
                     children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
+                            placeholder: "What's on your mind?",
+                            className: "w-full border border-gray-300 rounded-lg p-3 min-h-[100px] mb-4",
+                            value: content,
+                            onChange: (e)=>setContent(e.target.value)
+                        }, void 0, false, {
+                            fileName: "[project]/app/post/page.jsx",
+                            lineNumber: 382,
+                            columnNumber: 21
+                        }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                             type: "file",
                             accept: "image/*",
                             onChange: handleImageChange,
-                            className: "block w-full text-sm text-gray-600 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                            className: "block w-full text-sm text-gray-600 border border-gray-300 rounded-lg cursor-pointer mb-3"
                         }, void 0, false, {
                             fileName: "[project]/app/post/page.jsx",
-                            lineNumber: 70,
+                            lineNumber: 389,
                             columnNumber: 21
                         }, this),
                         image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                             src: URL.createObjectURL(image),
                             alt: "Preview",
-                            className: "mt-3 w-full h-60 object-cover rounded-lg"
+                            className: "w-full h-60 object-cover rounded-lg mb-3"
                         }, void 0, false, {
                             fileName: "[project]/app/post/page.jsx",
-                            lineNumber: 77,
+                            lineNumber: 396,
                             columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            type: "submit",
+                            disabled: loading,
+                            className: "w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-60",
+                            children: loading ? "Posting..." : "Post"
+                        }, void 0, false, {
+                            fileName: "[project]/app/post/page.jsx",
+                            lineNumber: 403,
+                            columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/post/page.jsx",
-                    lineNumber: 69,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                    onClick: handlePost,
-                    disabled: loading,
-                    className: "w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-60",
-                    children: loading ? "Posting..." : "Post"
-                }, void 0, false, {
-                    fileName: "[project]/app/post/page.jsx",
-                    lineNumber: 86,
+                    lineNumber: 381,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/post/page.jsx",
-            lineNumber: 55,
+            lineNumber: 379,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/post/page.jsx",
-        lineNumber: 54,
+        lineNumber: 378,
         columnNumber: 9
     }, this);
 }

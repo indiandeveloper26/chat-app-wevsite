@@ -1,8 +1,9 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/login/page": "app/login/page.js",
   "/page": "app/page.js",
   "/post/page": "app/post/page.js",
+  "/postshow/[userid]/page": "app/postshow/[userid]/page.js",
   "/postshow/page": "app/postshow/page.js",
   "/singupp/page": "app/singupp/page.js",
   "/userprofile/page": "app/userprofile/page.js"

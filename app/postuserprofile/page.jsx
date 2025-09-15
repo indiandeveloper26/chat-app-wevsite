@@ -14,7 +14,7 @@ export default function UserProfile() {
     const fetchUserData = async () => {
 
 
-        console.log('id paras',id)
+        console.log('id paras', id)
         try {
             const res = await api.get(`/user/${id}`); // backend me /user/:id banani hogi
             setUser(res.data.user);

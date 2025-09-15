@@ -102,7 +102,7 @@ var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 //                         <p className="mb-2">{item.content}</p>
 //                         {item.image && (
 //                             <img
-//                                 src={`http://localhost:5000${item.image}`}
+//                                 src={item.image}
 //                                 alt="post"
 //                                 className="w-full h-60 object-cover rounded-md mb-2"
 //                             />

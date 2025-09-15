@@ -287,12 +287,12 @@ function FeedScreen() {
                                     columnNumber: 25
                                 }, this),
                                 item.image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                    src: `http://localhost:5000${item.image}`,
+                                    src: `${item.image}`,
                                     alt: "post",
                                     className: "w-full h-60 object-cover rounded-md mb-2"
                                 }, void 0, false, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 125,
+                                    lineNumber: 134,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -312,7 +312,7 @@ function FeedScreen() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/postshow/page.jsx",
-                                                    lineNumber: 134,
+                                                    lineNumber: 144,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -326,13 +326,13 @@ function FeedScreen() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/postshow/page.jsx",
-                                                    lineNumber: 137,
+                                                    lineNumber: 147,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/postshow/page.jsx",
-                                            lineNumber: 133,
+                                            lineNumber: 143,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -344,13 +344,13 @@ function FeedScreen() {
                                             children: "🗑️ Delete"
                                         }, void 0, false, {
                                             fileName: "[project]/app/postshow/page.jsx",
-                                            lineNumber: 141,
+                                            lineNumber: 151,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 132,
+                                    lineNumber: 142,
                                     columnNumber: 25
                                 }, this)
                             ]
@@ -370,7 +370,7 @@ function FeedScreen() {
                                     children: "✖"
                                 }, void 0, false, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 155,
+                                    lineNumber: 165,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -381,7 +381,7 @@ function FeedScreen() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 162,
+                                    lineNumber: 172,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -389,7 +389,7 @@ function FeedScreen() {
                                     children: selectedPost.content
                                 }, void 0, false, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 163,
+                                    lineNumber: 173,
                                     columnNumber: 29
                                 }, this),
                                 selectedPost.image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -398,7 +398,7 @@ function FeedScreen() {
                                     className: "w-full max-h-96 object-cover rounded-md mb-2"
                                 }, void 0, false, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 166,
+                                    lineNumber: 176,
                                     columnNumber: 33
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -412,7 +412,7 @@ function FeedScreen() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/postshow/page.jsx",
-                                            lineNumber: 174,
+                                            lineNumber: 184,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -423,7 +423,7 @@ function FeedScreen() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/postshow/page.jsx",
-                                            lineNumber: 177,
+                                            lineNumber: 187,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -432,13 +432,13 @@ function FeedScreen() {
                                             children: "🗑️ Delete"
                                         }, void 0, false, {
                                             fileName: "[project]/app/postshow/page.jsx",
-                                            lineNumber: 180,
+                                            lineNumber: 190,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 173,
+                                    lineNumber: 183,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -451,12 +451,12 @@ function FeedScreen() {
                                             ]
                                         }, i, true, {
                                             fileName: "[project]/app/postshow/page.jsx",
-                                            lineNumber: 190,
+                                            lineNumber: 200,
                                             columnNumber: 37
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 188,
+                                    lineNumber: 198,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -466,7 +466,7 @@ function FeedScreen() {
                                     className: "border p-2 w-full mb-3 rounded"
                                 }, void 0, false, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 194,
+                                    lineNumber: 204,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -475,18 +475,18 @@ function FeedScreen() {
                                     children: "Post Comment"
                                 }, void 0, false, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 200,
+                                    lineNumber: 210,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/postshow/page.jsx",
-                            lineNumber: 154,
+                            lineNumber: 164,
                             columnNumber: 25
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/postshow/page.jsx",
-                        lineNumber: 153,
+                        lineNumber: 163,
                         columnNumber: 21
                     }, this)
                 ]
@@ -505,7 +505,7 @@ function FeedScreen() {
                             children: "Comments"
                         }, void 0, false, {
                             fileName: "[project]/app/postshow/page.jsx",
-                            lineNumber: 216,
+                            lineNumber: 226,
                             columnNumber: 25
                         }, this),
                         selectedPost.comments.map((c, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -516,7 +516,7 @@ function FeedScreen() {
                                 ]
                             }, i, true, {
                                 fileName: "[project]/app/postshow/page.jsx",
-                                lineNumber: 219,
+                                lineNumber: 229,
                                 columnNumber: 29
                             }, this)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -526,7 +526,7 @@ function FeedScreen() {
                             className: "border p-2 w-full mb-3 rounded"
                         }, void 0, false, {
                             fileName: "[project]/app/postshow/page.jsx",
-                            lineNumber: 222,
+                            lineNumber: 232,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -538,7 +538,7 @@ function FeedScreen() {
                                     children: "Post Comment"
                                 }, void 0, false, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 229,
+                                    lineNumber: 239,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -547,24 +547,24 @@ function FeedScreen() {
                                     children: "Close"
                                 }, void 0, false, {
                                     fileName: "[project]/app/postshow/page.jsx",
-                                    lineNumber: 235,
+                                    lineNumber: 245,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/postshow/page.jsx",
-                            lineNumber: 228,
+                            lineNumber: 238,
                             columnNumber: 25
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/postshow/page.jsx",
-                    lineNumber: 215,
+                    lineNumber: 225,
                     columnNumber: 21
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/postshow/page.jsx",
-                lineNumber: 214,
+                lineNumber: 224,
                 columnNumber: 17
             }, this)
         ]

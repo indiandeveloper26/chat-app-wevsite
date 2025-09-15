@@ -194,6 +194,7 @@
 
 import React, { useEffect, useState } from "react"
 import axios from "axios"
+import api from "../apicall"
 
 export default function PostUserData({ id }) {
     const [user, setUser] = useState(null)
@@ -211,7 +212,7 @@ export default function PostUserData({ id }) {
 
             let currentUserId = localStorage.getItem('id')
             try {
-                const res = await axios.post("http://localhost:5000/postuserprofile", { id })
+                const res = await api.post("postuserprofile", { id })
 
                 console.log(res.data)
                 const userData = res.data
@@ -242,7 +243,7 @@ export default function PostUserData({ id }) {
         console.log(id, currentUserId)
         try {
             const action = isFollowing ? "unfollow" : "follow"
-            const res = await axios.post("http://localhost:5000/follw", {
+            const res = await api.post("follw", {
                 userId: currentUserId,
                 targetUserId: id
             })
@@ -299,7 +300,7 @@ export default function PostUserData({ id }) {
                 {user.posts?.map((post) => (
                     <img
                         key={post._id}
-                        src={`http://localhost:5000/${post.image.replace(/^\/+/, "")}`}
+                        src={post.image}
                         alt="post"
                         className="w-full h-full object-cover hover:scale-105 transition-transform rounded"
                     />

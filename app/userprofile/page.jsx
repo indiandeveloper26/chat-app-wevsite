@@ -107,6 +107,8 @@ export default function ProfilePage({ profileUserId }) {
                 setUser(res.data.data);
                 setPosts(res.data.data.posts);
 
+                console.log('apicallinf', res)
+
                 setIsFollowing(
                     res.data.data.followers?.includes(currentUserId)
                 );
@@ -167,8 +169,8 @@ export default function ProfilePage({ profileUserId }) {
                                 onClick={handleFollowToggle}
                                 disabled={buttonLoading}
                                 className={`px-4 py-1 rounded-lg shadow text-white text-sm transition ${isFollowing
-                                        ? "bg-gray-400 hover:bg-gray-500"
-                                        : "bg-blue-500 hover:bg-blue-600"
+                                    ? "bg-gray-400 hover:bg-gray-500"
+                                    : "bg-blue-500 hover:bg-blue-600"
                                     }`}
                             >
                                 {buttonLoading ? "..." : isFollowing ? "Unfollow" : "Follow"}
@@ -195,7 +197,7 @@ export default function ProfilePage({ profileUserId }) {
                     >
                         {post.image ? (
                             <img
-                                src={`http://localhost:5000${post.image}`}
+                                src={post.image}
                                 alt="post"
                                 className="object-cover w-full h-full hover:scale-105 transition-transform"
                             />
