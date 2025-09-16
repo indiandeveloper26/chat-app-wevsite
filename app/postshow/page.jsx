@@ -23,7 +23,7 @@ export default function FeedScreen() {
     // ✅ Backend se posts fetch
     const fetchPosts = async () => {
         try {
-            let res = await api.get("/userget");
+            let res = await api.get("/postapi");
             setPosts(res.data);
             console.log("Posts:", res.data);
         } catch (error) {

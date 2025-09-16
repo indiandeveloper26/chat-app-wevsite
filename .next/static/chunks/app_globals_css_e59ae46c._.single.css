@@ -580,6 +580,10 @@
     aspect-ratio: 1;
   }
 
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+
   .h-20 {
     height: calc(var(--spacing) * 20);
   }
@@ -608,6 +612,10 @@
     max-height: calc(var(--spacing) * 96);
   }
 
+  .max-h-\[70vh\] {
+    max-height: 70vh;
+  }
+
   .max-h-\[90vh\] {
     max-height: 90vh;
   }
@@ -620,6 +628,10 @@
     min-height: 100vh;
   }
 
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
+
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
@@ -630,6 +642,10 @@
 
   .w-28 {
     width: calc(var(--spacing) * 28);
+  }
+
+  .w-80 {
+    width: calc(var(--spacing) * 80);
   }
 
   .w-96 {
@@ -696,6 +712,10 @@
     gap: calc(var(--spacing) * 2);
   }
 
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
@@ -716,6 +736,10 @@
 
   .overflow-hidden {
     overflow: hidden;
+  }
+
+  .overflow-y-auto {
+    overflow-y: auto;
   }
 
   .rounded {

@@ -66,7 +66,7 @@ function FeedScreen() {
     // ✅ Backend se posts fetch
     const fetchPosts = async ()=>{
         try {
-            let res = await __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$apicall$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get("/userget");
+            let res = await __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$apicall$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get("/postapi");
             setPosts(res.data);
             console.log("Posts:", res.data);
         } catch (error) {
