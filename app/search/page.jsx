@@ -54,7 +54,7 @@ export default function page() {
             alert("Please login first.");
             return;
         }
-        router.push(`/chatroom/${clickedUsername.username}`);
+        router.push(`/chatlist/${clickedUsername.username}`);
     };
 
     return (
