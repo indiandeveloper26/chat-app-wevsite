@@ -358,7 +358,7 @@ const page = () => {
 
     const openChat = async (item) => {
         await markChatAsRead?.(item.adduser);
-        router.push(`/chat/${item.adduser}`);
+        router.push(`/chatlist/${item.adduser}`);
     };
 
     const deleteChat = (user) => {
