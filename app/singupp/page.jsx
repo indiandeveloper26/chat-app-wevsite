@@ -1,157 +1,154 @@
-// "use client";
-// import { useState } from "react";
-// import { useRouter } from "next/navigation";
-// import api from "../apicall.js";
-
-// export default function SignupPage() {
-//     const [form, setForm] = useState({ name: "", email: "", password: "" });
-//     const router = useRouter();
-
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-//         if (!form.name || !form.email || !form.password) {
-//             alert("Please fill all fields");
-//             return;
-//         }
-
-//         try {
-//             const res = await api.post("/api/register", form);
-//             console.log("Signup Response:", res.data);
-
-//             // ✅ Token + user save karna ho to localStorage use karo
-//             localStorage.setItem("token", res.data.token);
-//             localStorage.setItem("user", JSON.stringify(res.data.user));
-
-//             router.push("/post"); // ✅ Redirect after signup
-//         } catch (error) {
-//             console.error("Signup Error:", error.response?.data || error.message);
-//             alert(error.response?.data?.message || "Signup failed");
-//         }
-//     };
-
-//     return (
-//         <div className="min-h-screen flex items-center justify-center bg-gray-100">
-//             <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-lg">
-//                 <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-//                     Create Account
-//                 </h1>
-//                 <form onSubmit={handleSubmit} className="space-y-4">
-//                     <input
-//                         type="text"
-//                         placeholder="Full Name"
-//                         value={form.name}
-//                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-//                         className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-//                     />
-//                     <input
-//                         type="email"
-//                         placeholder="Email"
-//                         value={form.email}
-//                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-//                         className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-//                     />
-//                     <input
-//                         type="password"
-//                         placeholder="Password"
-//                         value={form.password}
-//                         onChange={(e) => setForm({ ...form, password: e.target.value })}
-//                         className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-//                     />
-//                     <button
-//                         type="submit"
-//                         className="w-full py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition"
-//                     >
-//                         Sign Up
-//                     </button>
-//                 </form>
-//                 <p className="text-sm text-gray-600 text-center mt-4">
-//                     Already have an account?{" "}
-//                     <a href="/login" className="text-blue-600 hover:underline">
-//                         Login
-//                     </a>
-//                 </p>
-//             </div>
-//         </div>
-//     );
-// }
-
-
-
-
-
 "use client";
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import api from "../apicall.js";
 
 export default function SignupPage() {
-    const [form, setForm] = useState({ name: "", email: "", password: "" });
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false);
+
     const router = useRouter();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (!form.name || !form.email || !form.password) {
-            alert("Please fill all fields");
-            return;
-        }
+    // ✅ Validation
+    const validate = () => {
+        const newErrors = {};
+        if (!username.trim()) newErrors.username = "Username is required";
+        if (!password) newErrors.password = "Password is required";
+        else if (password.length < 6) newErrors.password = "Min 6 chars";
+        if (!confirmPassword) newErrors.confirmPassword = "Confirm Password is required";
+        else if (password !== confirmPassword)
+            newErrors.confirmPassword = "Passwords do not match";
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+
+
+
+
+    // useLayoutEffect(() => {
+
+    //     let call = async () => {
+    //         let call = await api.get('/apitest')
+    //         console.log(call)
+    //     }
+
+
+
+    //     call()
+
+    // }, [])
+
+
+
+
+
+
+
+    // ✅ Signup handler
+    const handleSignup = async () => {
+        if (!validate()) return;
+
+        setLoading(true);
+        const lowerUsername = username.toLowerCase();
 
         try {
-            const res = await api.post("/api/register", form);
-            console.log("Signup Response:", res.data);
+            const response = await api.post('/singup', {
+                username: lowerUsername,
+                password,
+            });
 
-            // ✅ Save token + user
-            localStorage.setItem("token", res.data.token);
-            localStorage.setItem("id", res.data._id);
-            localStorage.setItem("user", JSON.stringify(res.data.name));
+            const apiRes = response.data;
 
-            router.push("/post");
+            // ✅ Save to localStorage (AsyncStorage ki jagah)
+            if (apiRes.token) localStorage.setItem("token", apiRes.token);
+            if (apiRes.user?.username) localStorage.setItem("username", apiRes.user.username);
+            if (apiRes.user?.premiumExpiry)
+                localStorage.setItem("premiumExpiry", apiRes.user.premiumExpiry);
+            if (apiRes.user?.isPremium !== undefined)
+                localStorage.setItem("isPremium", apiRes.user.isPremium.toString());
+
+            alert("✅ Signup successful! You got 2 days premium!");
+            router.push("chatlist"); // Next.js page navigation
         } catch (error) {
-            console.error("Signup Error:", error.response?.data || error.message);
-            alert(error.response?.data?.message || "Signup failed");
+            console.error(error);
+            alert("❌ Signup failed, please try again!");
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-lg">
-                <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+        <div className="flex items-center justify-center min-h-screen bg-black">
+            <div className="w-full max-w-md bg-gray-900 p-8 rounded-2xl shadow-lg">
+                <h1 className="text-3xl font-bold text-white text-center mb-6">
                     Create Account
                 </h1>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <input
-                        type="text"
-                        placeholder="Full Name"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-                    />
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={form.password}
-                        onChange={(e) => setForm({ ...form, password: e.target.value })}
-                        className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-                    />
-                    <button
-                        type="submit"
-                        className="w-full py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition"
-                    >
-                        Sign Up
-                    </button>
-                </form>
-                <p className="text-sm text-gray-600 text-center mt-4">
-                    Already have an account?{" "}
-                    <a href="/login" className="text-blue-600 hover:underline">
-                        Login
-                    </a>
-                </p>
+
+                {/* Username */}
+                <input
+                    type="text"
+                    placeholder="Username"
+                    className="w-full p-3 mb-2 rounded bg-gray-800 text-white focus:outline-none"
+                    value={username}
+                    onChange={(e) => {
+                        setUsername(e.target.value);
+                        if (errors.username) setErrors((prev) => ({ ...prev, username: null }));
+                    }}
+                />
+                {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
+
+                {/* Password */}
+                <input
+                    type="password"
+                    placeholder="Password"
+                    className="w-full p-3 mb-2 rounded bg-gray-800 text-white focus:outline-none"
+                    value={password}
+                    onChange={(e) => {
+                        setPassword(e.target.value);
+                        if (errors.password) setErrors((prev) => ({ ...prev, password: null }));
+                    }}
+                />
+                {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+
+                {/* Confirm Password */}
+                <input
+                    type="password"
+                    placeholder="Confirm Password"
+                    className="w-full p-3 mb-2 rounded bg-gray-800 text-white focus:outline-none"
+                    value={confirmPassword}
+                    onChange={(e) => {
+                        setConfirmPassword(e.target.value);
+                        if (errors.confirmPassword)
+                            setErrors((prev) => ({ ...prev, confirmPassword: null }));
+                    }}
+                />
+                {errors.confirmPassword && (
+                    <p className="text-red-500 text-sm">{errors.confirmPassword}</p>
+                )}
+
+                {/* Submit button */}
+                <button
+                    onClick={handleSignup}
+                    disabled={loading}
+                    className="w-full bg-white text-black py-3 rounded-lg font-bold mt-4 hover:bg-gray-300 disabled:opacity-60"
+                >
+                    {loading ? "Signing up..." : "Sign Up"}
+                </button>
+
+                {/* Login redirect */}
+                <button
+                    onClick={() => router.push("/login")}
+                    disabled={loading}
+                    className="w-full bg-gray-700 text-white py-3 rounded-lg font-bold mt-3 hover:bg-gray-600"
+                >
+                    Login
+                </button>
             </div>
         </div>
     );

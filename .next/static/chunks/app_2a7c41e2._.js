@@ -13,8 +13,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 // ✅ Axios instance banao
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].create({
-    // baseURL: 'http://10.17.254.92:5000', // yahan apna base URL daal
-    baseURL: 'https://socail-app-bakcend-v-2-2.onrender.com/',
+    baseURL: 'http://10.214.133.92:4000',
+    // baseURL: 'https://socail-app-bakcend-v-2-2.onrender.com/', // yahan apna base URL daal
     // baseURL: 'https://firebase-chat-app-v-8-3.onrender.com', // yahan apna base URL daal
     timeout: 5000
 });
@@ -44,76 +44,6 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
-// "use client";
-// import { useState } from "react";
-// import { useRouter } from "next/navigation";
-// import api from "../apicall.js";
-// export default function SignupPage() {
-//     const [form, setForm] = useState({ name: "", email: "", password: "" });
-//     const router = useRouter();
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-//         if (!form.name || !form.email || !form.password) {
-//             alert("Please fill all fields");
-//             return;
-//         }
-//         try {
-//             const res = await api.post("/api/register", form);
-//             console.log("Signup Response:", res.data);
-//             // ✅ Token + user save karna ho to localStorage use karo
-//             localStorage.setItem("token", res.data.token);
-//             localStorage.setItem("user", JSON.stringify(res.data.user));
-//             router.push("/post"); // ✅ Redirect after signup
-//         } catch (error) {
-//             console.error("Signup Error:", error.response?.data || error.message);
-//             alert(error.response?.data?.message || "Signup failed");
-//         }
-//     };
-//     return (
-//         <div className="min-h-screen flex items-center justify-center bg-gray-100">
-//             <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-lg">
-//                 <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-//                     Create Account
-//                 </h1>
-//                 <form onSubmit={handleSubmit} className="space-y-4">
-//                     <input
-//                         type="text"
-//                         placeholder="Full Name"
-//                         value={form.name}
-//                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-//                         className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-//                     />
-//                     <input
-//                         type="email"
-//                         placeholder="Email"
-//                         value={form.email}
-//                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-//                         className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-//                     />
-//                     <input
-//                         type="password"
-//                         placeholder="Password"
-//                         value={form.password}
-//                         onChange={(e) => setForm({ ...form, password: e.target.value })}
-//                         className="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-//                     />
-//                     <button
-//                         type="submit"
-//                         className="w-full py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition"
-//                     >
-//                         Sign Up
-//                     </button>
-//                 </form>
-//                 <p className="text-sm text-gray-600 text-center mt-4">
-//                     Already have an account?{" "}
-//                     <a href="/login" className="text-blue-600 hover:underline">
-//                         Login
-//                     </a>
-//                 </p>
-//             </div>
-//         </div>
-//     );
-// }
 __turbopack_context__.s({
     "default": ()=>SignupPage
 });
@@ -127,141 +57,180 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 function SignupPage() {
     _s();
-    const [form, setForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
-        name: "",
-        email: "",
-        password: ""
-    });
+    const [username, setUsername] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [password, setPassword] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [confirmPassword, setConfirmPassword] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [errors, setErrors] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({});
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
-    const handleSubmit = async (e)=>{
-        e.preventDefault();
-        if (!form.name || !form.email || !form.password) {
-            alert("Please fill all fields");
-            return;
-        }
+    // ✅ Validation
+    const validate = ()=>{
+        const newErrors = {};
+        if (!username.trim()) newErrors.username = "Username is required";
+        if (!password) newErrors.password = "Password is required";
+        else if (password.length < 6) newErrors.password = "Min 6 chars";
+        if (!confirmPassword) newErrors.confirmPassword = "Confirm Password is required";
+        else if (password !== confirmPassword) newErrors.confirmPassword = "Passwords do not match";
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+    // useLayoutEffect(() => {
+    //     let call = async () => {
+    //         let call = await api.get('/apitest')
+    //         console.log(call)
+    //     }
+    //     call()
+    // }, [])
+    // ✅ Signup handler
+    const handleSignup = async ()=>{
+        if (!validate()) return;
+        setLoading(true);
+        const lowerUsername = username.toLowerCase();
         try {
-            const res = await __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$apicall$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post("/api/register", form);
-            console.log("Signup Response:", res.data);
-            // ✅ Save token + user
-            localStorage.setItem("token", res.data.token);
-            localStorage.setItem("id", res.data._id);
-            localStorage.setItem("user", JSON.stringify(res.data.name));
-            router.push("/post");
+            var _apiRes_user, _apiRes_user1, _apiRes_user2;
+            const response = await __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$apicall$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post('/singup', {
+                username: lowerUsername,
+                password
+            });
+            const apiRes = response.data;
+            // ✅ Save to localStorage (AsyncStorage ki jagah)
+            if (apiRes.token) localStorage.setItem("token", apiRes.token);
+            if ((_apiRes_user = apiRes.user) === null || _apiRes_user === void 0 ? void 0 : _apiRes_user.username) localStorage.setItem("username", apiRes.user.username);
+            if ((_apiRes_user1 = apiRes.user) === null || _apiRes_user1 === void 0 ? void 0 : _apiRes_user1.premiumExpiry) localStorage.setItem("premiumExpiry", apiRes.user.premiumExpiry);
+            if (((_apiRes_user2 = apiRes.user) === null || _apiRes_user2 === void 0 ? void 0 : _apiRes_user2.isPremium) !== undefined) localStorage.setItem("isPremium", apiRes.user.isPremium.toString());
+            alert("✅ Signup successful! You got 2 days premium!");
+            router.push("chatlist"); // Next.js page navigation
         } catch (error) {
-            var _error_response, _error_response_data, _error_response1;
-            console.error("Signup Error:", ((_error_response = error.response) === null || _error_response === void 0 ? void 0 : _error_response.data) || error.message);
-            alert(((_error_response1 = error.response) === null || _error_response1 === void 0 ? void 0 : (_error_response_data = _error_response1.data) === null || _error_response_data === void 0 ? void 0 : _error_response_data.message) || "Signup failed");
+            console.error(error);
+            alert("❌ Signup failed, please try again!");
+        } finally{
+            setLoading(false);
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen flex items-center justify-center bg-gray-100",
+        className: "flex items-center justify-center min-h-screen bg-black",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "max-w-md w-full bg-white p-8 rounded-2xl shadow-lg",
+            className: "w-full max-w-md bg-gray-900 p-8 rounded-2xl shadow-lg",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                    className: "text-3xl font-bold text-center text-gray-800 mb-6",
+                    className: "text-3xl font-bold text-white text-center mb-6",
                     children: "Create Account"
                 }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
-                    lineNumber: 117,
+                    lineNumber: 89,
                     columnNumber: 17
                 }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
-                    onSubmit: handleSubmit,
-                    className: "space-y-4",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                            type: "text",
-                            placeholder: "Full Name",
-                            value: form.name,
-                            onChange: (e)=>setForm({
-                                    ...form,
-                                    name: e.target.value
-                                }),
-                            className: "w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-                        }, void 0, false, {
-                            fileName: "[project]/app/singupp/page.jsx",
-                            lineNumber: 121,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                            type: "email",
-                            placeholder: "Email",
-                            value: form.email,
-                            onChange: (e)=>setForm({
-                                    ...form,
-                                    email: e.target.value
-                                }),
-                            className: "w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-                        }, void 0, false, {
-                            fileName: "[project]/app/singupp/page.jsx",
-                            lineNumber: 128,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                            type: "password",
-                            placeholder: "Password",
-                            value: form.password,
-                            onChange: (e)=>setForm({
-                                    ...form,
-                                    password: e.target.value
-                                }),
-                            className: "w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
-                        }, void 0, false, {
-                            fileName: "[project]/app/singupp/page.jsx",
-                            lineNumber: 135,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            type: "submit",
-                            className: "w-full py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition",
-                            children: "Sign Up"
-                        }, void 0, false, {
-                            fileName: "[project]/app/singupp/page.jsx",
-                            lineNumber: 142,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, void 0, true, {
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                    type: "text",
+                    placeholder: "Username",
+                    className: "w-full p-3 mb-2 rounded bg-gray-800 text-white focus:outline-none",
+                    value: username,
+                    onChange: (e)=>{
+                        setUsername(e.target.value);
+                        if (errors.username) setErrors((prev)=>({
+                                ...prev,
+                                username: null
+                            }));
+                    }
+                }, void 0, false, {
+                    fileName: "[project]/app/singupp/page.jsx",
+                    lineNumber: 94,
+                    columnNumber: 17
+                }, this),
+                errors.username && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-red-500 text-sm",
+                    children: errors.username
+                }, void 0, false, {
+                    fileName: "[project]/app/singupp/page.jsx",
+                    lineNumber: 104,
+                    columnNumber: 37
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                    type: "password",
+                    placeholder: "Password",
+                    className: "w-full p-3 mb-2 rounded bg-gray-800 text-white focus:outline-none",
+                    value: password,
+                    onChange: (e)=>{
+                        setPassword(e.target.value);
+                        if (errors.password) setErrors((prev)=>({
+                                ...prev,
+                                password: null
+                            }));
+                    }
+                }, void 0, false, {
+                    fileName: "[project]/app/singupp/page.jsx",
+                    lineNumber: 107,
+                    columnNumber: 17
+                }, this),
+                errors.password && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-red-500 text-sm",
+                    children: errors.password
+                }, void 0, false, {
+                    fileName: "[project]/app/singupp/page.jsx",
+                    lineNumber: 117,
+                    columnNumber: 37
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                    type: "password",
+                    placeholder: "Confirm Password",
+                    className: "w-full p-3 mb-2 rounded bg-gray-800 text-white focus:outline-none",
+                    value: confirmPassword,
+                    onChange: (e)=>{
+                        setConfirmPassword(e.target.value);
+                        if (errors.confirmPassword) setErrors((prev)=>({
+                                ...prev,
+                                confirmPassword: null
+                            }));
+                    }
+                }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
                     lineNumber: 120,
                     columnNumber: 17
                 }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "text-sm text-gray-600 text-center mt-4",
-                    children: [
-                        "Already have an account?",
-                        " ",
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                            href: "/login",
-                            className: "text-blue-600 hover:underline",
-                            children: "Login"
-                        }, void 0, false, {
-                            fileName: "[project]/app/singupp/page.jsx",
-                            lineNumber: 151,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, void 0, true, {
+                errors.confirmPassword && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-red-500 text-sm",
+                    children: errors.confirmPassword
+                }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
-                    lineNumber: 149,
+                    lineNumber: 132,
+                    columnNumber: 21
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                    onClick: handleSignup,
+                    disabled: loading,
+                    className: "w-full bg-white text-black py-3 rounded-lg font-bold mt-4 hover:bg-gray-300 disabled:opacity-60",
+                    children: loading ? "Signing up..." : "Sign Up"
+                }, void 0, false, {
+                    fileName: "[project]/app/singupp/page.jsx",
+                    lineNumber: 136,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                    onClick: ()=>router.push("/login"),
+                    disabled: loading,
+                    className: "w-full bg-gray-700 text-white py-3 rounded-lg font-bold mt-3 hover:bg-gray-600",
+                    children: "Login"
+                }, void 0, false, {
+                    fileName: "[project]/app/singupp/page.jsx",
+                    lineNumber: 145,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/singupp/page.jsx",
-            lineNumber: 116,
+            lineNumber: 88,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/singupp/page.jsx",
-        lineNumber: 115,
+        lineNumber: 87,
         columnNumber: 9
     }, this);
 }
-_s(SignupPage, "E5p27fzoThAMJa24CgWt4nis9As=", false, function() {
+_s(SignupPage, "tDYaYyzDh3qtOVfgxAjM9G4+0H4=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];
