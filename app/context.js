@@ -27,7 +27,7 @@ export const ChatProvider = ({ children }) => {
     // ✅ Init socket
     useEffect(() => {
         if (!socket) {
-            socket = io('http://10.214.133.92:4000', {
+            socket = io('https://chat-app-server-render-v-1.onrender.com/', {
                 transports: ["websocket"],
             });
         }

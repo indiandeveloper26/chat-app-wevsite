@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const socket = io("http://10.214.133.92:4000", {
+const socket = io("https://chat-app-server-render-v-1.onrender.com", {
     transports: ["websocket"],
     autoConnect: false,
 });
