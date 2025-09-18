@@ -352,7 +352,7 @@ const page = () => {
         if (window.confirm("Are you sure you want to logout?")) {
             localStorage.clear();
             clearAll?.();
-            router.push("/signup");
+            router.push("/");
         }
     };
 
