@@ -13,6 +13,8 @@ export default function SignupPage() {
 
     const router = useRouter();
 
+
+
     // ✅ Validation
     const validate = () => {
         const newErrors = {};
@@ -65,6 +67,8 @@ export default function SignupPage() {
 
             const apiRes = response.data;
 
+            console.log(apiRes)
+
             // ✅ Save to localStorage (AsyncStorage ki jagah)
             if (apiRes.token) localStorage.setItem("token", apiRes.token);
             if (apiRes.user?.username) localStorage.setItem("username", apiRes.user.username);
@@ -75,6 +79,9 @@ export default function SignupPage() {
 
             alert("✅ Signup successful! You got 2 days premium!");
             router.push("chatlist"); // Next.js page navigation
+
+
+
         } catch (error) {
             console.error(error);
             alert("❌ Signup failed, please try again!");

@@ -1,5 +1,10 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/chatlist/[id]/call/[callid]/page": "app/chatlist/[id]/call/[callid]/page.js",
+  "/chatlist/[id]/page": "app/chatlist/[id]/page.js",
   "/chatlist/page": "app/chatlist/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/page": "app/page.js"
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js",
+  "/videocall/page": "app/videocall/page.js"
 }

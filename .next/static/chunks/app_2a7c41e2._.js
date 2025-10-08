@@ -13,8 +13,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 // ✅ Axios instance banao
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].create({
-    // baseURL: 'http://10.214.133.92:4000', // yahan apna base URL daal
-    baseURL: 'https://chat-app-server-render-v-1.onrender.com',
+    baseURL: 'http://10.95.139.92:4000',
+    // baseURL: 'https://chat-app-server-render-v-1.onrender.com', // yahan apna base URL daal
     // baseURL: 'https://firebase-chat-app-v-8-3.onrender.com', // yahan apna base URL daal
     timeout: 5000
 });
@@ -96,6 +96,7 @@ function SignupPage() {
                 password
             });
             const apiRes = response.data;
+            console.log(apiRes);
             // ✅ Save to localStorage (AsyncStorage ki jagah)
             if (apiRes.token) localStorage.setItem("token", apiRes.token);
             if ((_apiRes_user = apiRes.user) === null || _apiRes_user === void 0 ? void 0 : _apiRes_user.username) localStorage.setItem("username", apiRes.user.username);
@@ -120,7 +121,7 @@ function SignupPage() {
                     children: "Create Account"
                 }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
-                    lineNumber: 89,
+                    lineNumber: 96,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -137,7 +138,7 @@ function SignupPage() {
                     }
                 }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
-                    lineNumber: 94,
+                    lineNumber: 101,
                     columnNumber: 17
                 }, this),
                 errors.username && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -145,7 +146,7 @@ function SignupPage() {
                     children: errors.username
                 }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
-                    lineNumber: 104,
+                    lineNumber: 111,
                     columnNumber: 37
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -162,7 +163,7 @@ function SignupPage() {
                     }
                 }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
-                    lineNumber: 107,
+                    lineNumber: 114,
                     columnNumber: 17
                 }, this),
                 errors.password && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -170,7 +171,7 @@ function SignupPage() {
                     children: errors.password
                 }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
-                    lineNumber: 117,
+                    lineNumber: 124,
                     columnNumber: 37
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -187,7 +188,7 @@ function SignupPage() {
                     }
                 }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
-                    lineNumber: 120,
+                    lineNumber: 127,
                     columnNumber: 17
                 }, this),
                 errors.confirmPassword && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -195,7 +196,7 @@ function SignupPage() {
                     children: errors.confirmPassword
                 }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
-                    lineNumber: 132,
+                    lineNumber: 139,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -205,7 +206,7 @@ function SignupPage() {
                     children: loading ? "Signing up..." : "Sign Up"
                 }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
-                    lineNumber: 136,
+                    lineNumber: 143,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -215,18 +216,18 @@ function SignupPage() {
                     children: "Login"
                 }, void 0, false, {
                     fileName: "[project]/app/singupp/page.jsx",
-                    lineNumber: 145,
+                    lineNumber: 152,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/singupp/page.jsx",
-            lineNumber: 88,
+            lineNumber: 95,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/singupp/page.jsx",
-        lineNumber: 87,
+        lineNumber: 94,
         columnNumber: 9
     }, this);
 }

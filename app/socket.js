@@ -1,8 +1,11 @@
+// socket.js
 import { io } from "socket.io-client";
 
-const socket = io("https://chat-app-server-render-v-1.onrender.com", {
+// ✅ Socket instance
+const socket = io("http://10.95.139.92:4000", {
     transports: ["websocket"],
-    autoConnect: false,
+    autoConnect: false, // manual connect
 });
 
 export default socket;
+

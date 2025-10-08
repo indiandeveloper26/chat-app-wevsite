@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import api from "../apicall.js";
+import { ChatContext } from "../context/chatcontext.jsx";
 
 export default function page() {
     const [username, setUsername] = useState("");
@@ -12,6 +13,9 @@ export default function page() {
     const [loading, setLoading] = useState(false);
 
     const router = useRouter();
+
+
+    const { setMyUsername, } = useContext(ChatContext);
 
     // ✅ Validation
     const validate = () => {
@@ -35,6 +39,8 @@ export default function page() {
                 password,
             });
 
+            console.log(data)
+
             // ✅ Save to localStorage
             if (data.token) localStorage.setItem("token", data.token);
             if (data.user?.username) localStorage.setItem("username", data.user.username);
@@ -48,7 +54,15 @@ export default function page() {
             }
 
             alert("✅ Login Successful!");
-            router.push("component/chatlist"); // redirect after login
+
+            let usernae = await localStorage.getItem("username")
+
+
+            console.log(usernae)
+
+            setMyUsername(usernae)
+
+            router.push("chatlist"); // redirect after login
         } catch (err) {
             console.error(err);
             alert("❌ Invalid username or password");

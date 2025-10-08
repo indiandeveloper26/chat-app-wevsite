@@ -88,7 +88,9 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ChatProvider } from "./context";
+import { ChatProvider } from "./context/chatcontext";
+import ReduxProvider from "./rtk/reduxprovider";
+import IncomingCall from "./calling/page";
 // ✅ aapka context import
 
 const geistSans = Geist({
@@ -111,9 +113,15 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* ✅ Yaha wrap karna hota hai */}
-        <ChatProvider>
-          {children}
-        </ChatProvider>
+        <ReduxProvider>
+
+
+          <ChatProvider>
+            {children}
+            <IncomingCall />
+          </ChatProvider>
+        </ReduxProvider>
+
       </body>
     </html>
   );
