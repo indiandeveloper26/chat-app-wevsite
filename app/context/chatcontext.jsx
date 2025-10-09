@@ -293,6 +293,8 @@
 
 "use client"; // ✅ must for client-side React hooks
 
+export const dynamic = "force-dynamic";
+
 import React, { createContext, useState, useEffect, useCallback } from "react";
 import socket from "../socket.js"; // ✅ your Socket.IO client instance
 

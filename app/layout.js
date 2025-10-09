@@ -113,14 +113,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* ✅ Yaha wrap karna hota hai */}
-        <ReduxProvider>
 
 
-          <ChatProvider>
-            {children}
-            <IncomingCall />
-          </ChatProvider>
-        </ReduxProvider>
+
+        <ChatProvider>
+          {children}
+          <IncomingCall />
+        </ChatProvider>
+
 
       </body>
     </html>

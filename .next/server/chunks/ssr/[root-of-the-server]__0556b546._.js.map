@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 42, "column": 0}, "map": {"version":3,"sources":["file:///D:/live-app/socail-app/socail-forntend/socail-appwith-web/socail-web-app/app/postshow/%5Bid%5D/page.jsx"],"sourcesContent":["import React from 'react'\r\nimport { useRouter } from \"next/router\"\r\nexport default function page() {\r\n\r\n    const router = useRouter()\r\n    const { id } = router.query // yahan se id milegi\r\n\r\n    console.log('id', id)\r\n    return (\r\n        <div>\r\n\r\n\r\n\r\n            <h1>this is id page now</h1>\r\n        </div>\r\n    )\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;AACA;;;;AACe,SAAS;IAEpB,MAAM,SAAS,CAAA,GAAA,8HAAA,CAAA,YAAS,AAAD;IACvB,MAAM,EAAE,EAAE,EAAE,GAAG,OAAO,KAAK,CAAC,qBAAqB;;IAEjD,QAAQ,GAAG,CAAC,MAAM;IAClB,qBACI,8OAAC;kBAIG,cAAA,8OAAC;sBAAG;;;;;;;;;;;AAGhB","debugId":null}}]
-}

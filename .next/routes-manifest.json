@@ -1,1 +1,169 @@
-{"version":3,"caseSensitive":false,"basePath":"","rewrites":{"beforeFiles":[],"afterFiles":[],"fallback":[]},"redirects":[{"source":"/:path+/","destination":"/:path+","permanent":true,"internal":true,"regex":"^(?:\\/((?:[^\\/]+?)(?:\\/(?:[^\\/]+?))*))\\/$"}],"headers":[]}
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/chatlist/[id]",
+      "regex": "^/chatlist/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/chatlist/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/chatlist/[id]/call/[callid]",
+      "regex": "^/chatlist/([^/]+?)/call/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid",
+        "nxtPcallid": "nxtPcallid"
+      },
+      "namedRegex": "^/chatlist/(?<nxtPid>[^/]+?)/call/(?<nxtPcallid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/grouplist/[id]",
+      "regex": "^/grouplist/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/grouplist/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/calling",
+      "regex": "^/calling(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/calling(?:/)?$"
+    },
+    {
+      "page": "/chatlist",
+      "regex": "^/chatlist(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/chatlist(?:/)?$"
+    },
+    {
+      "page": "/chatroom",
+      "regex": "^/chatroom(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/chatroom(?:/)?$"
+    },
+    {
+      "page": "/count",
+      "regex": "^/count(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/count(?:/)?$"
+    },
+    {
+      "page": "/data",
+      "regex": "^/data(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/data(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/grouplist",
+      "regex": "^/grouplist(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/grouplist(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/rtkdata",
+      "regex": "^/rtkdata(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/rtkdata(?:/)?$"
+    },
+    {
+      "page": "/rtkdataa",
+      "regex": "^/rtkdataa(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/rtkdataa(?:/)?$"
+    },
+    {
+      "page": "/search",
+      "regex": "^/search(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/search(?:/)?$"
+    },
+    {
+      "page": "/singupp",
+      "regex": "^/singupp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/singupp(?:/)?$"
+    },
+    {
+      "page": "/userfollwercount",
+      "regex": "^/userfollwercount(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/userfollwercount(?:/)?$"
+    },
+    {
+      "page": "/userprofile",
+      "regex": "^/userprofile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/userprofile(?:/)?$"
+    },
+    {
+      "page": "/videocall",
+      "regex": "^/videocall(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/videocall(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "RSC",
+    "varyHeader": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch",
+    "prefetchHeader": "Next-Router-Prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "Next-Router-Segment-Prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

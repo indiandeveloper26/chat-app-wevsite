@@ -1,4 +1,4 @@
-// File: D:\next-app\chatppweb\app\count\page.js
+// File: D:\live-app\chat-app-with-backend\chat-app-web\app\count\page.js
 import * as entry from '../../../../app/count/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
